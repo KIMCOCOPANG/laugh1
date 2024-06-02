@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세 게임</title>
+    <style>
+        /* 이미지 스타일 */
+        #random-image {
+            display: none;
+            margin: 20px auto;
+            max-width: 10%;
+            height: auto;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="fortune-game-container">
+        <h1 class="page-title">오늘의 운세를 알아볼까요?</h1>
+
+        <!-- 랜덤 이미지 표시 -->
+        <img id="random-image" src="" alt="Random Image">
+
+        <!-- 이미지 변경 버튼 -->
+        <button onclick="displayRandomImage()">새로운 이미지 보기</button>
+
+        <!-- 이미지 프린트 버튼 -->
+        <button onclick="printImage()">이미지 프린트</button>
+    </div>
+
+    <script>
+        function displayRandomImage() {
+            const images = [
+                'sample/image1.png',
+                'sample/image2.webp',
+                'sample/image3.jpg',
+                'sample/image4.png',
+                'sample/image5.png',
+                'sample/image6.png',
+                'sample/image7.png',
+                'sample/image8.png',
+                'sample/image8.png',
+                'sample/image8.png'
+            ];
+
+            // 랜덤한 이미지 선택
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const selectedImage = images[randomIndex];
+
+            // 이미지 표시
+            const randomImage = document.getElementById('random-image');
+            randomImage.onload = function() {
+                randomImage.style.display = 'block';
+            };
+            randomImage.src = selectedImage;
+        }
+
+        function printImage() {
+            // 이미지를 별도의 창에 표시하여 프린트
+            const imgWindow = window.open('', '', 'width=1000,height=1000');
+            const randomImage = document.getElementById('random-image').cloneNode(true);
+            imgWindow.document.write(randomImage.outerHTML);
+            imgWindow.document.close();
+            imgWindow.onload = function() {
+                imgWindow.print();
+            };
+        }
+    </script>
+</body>
+</html>

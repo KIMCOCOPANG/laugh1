@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전시 방명록</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="guestbook-container">
+        <h1 class="page-title">전시 방명록</h1>
+
+        <!-- 입력란 -->
+        <div class="input-section">
+            <input type="text" id="name" placeholder="이름">
+            <textarea id="message" placeholder="소감을 남겨주세요"></textarea>
+            <button onclick="submitEntry()">제출</button>
+        </div>
+
+        <!-- 방명록 목록 -->
+        <div class="guestbook-entries">
+            <h2>방명록 목록</h2>
+            <ul id="guestbook-list"></ul>
+        </div>
+    </div>
+
+    <script src="scripts-guestbook.js"></script>
+</body>
+</html>
